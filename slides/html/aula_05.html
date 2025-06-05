@@ -338,7 +338,7 @@ graph LR
 
     table_registry.metadata.create_all(engine)
 
-<span class="hljs-keyword">with</span> Session(engine) <span class="hljs-keyword">as</span> session:
+    <span class="hljs-keyword">with</span> Session(engine) <span class="hljs-keyword">as</span> session:
         <span class="hljs-keyword">yield</span> session
 
     table_registry.metadata.drop_all(engine)
