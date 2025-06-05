@@ -78,8 +78,8 @@ engine = create_engine(Settings().DATABASE_URL)
 
 session = Session(engine)  <span class="hljs-comment"># Cria a sessão</span>
 
-session.add(obj)      <span class="hljs-comment"># Adiciona no banco</span>
-session.delete(obj)   <span class="hljs-comment"># Remove do banco</span>
+session.add(obj)      <span class="hljs-comment"># Adiciona na sessão</span>
+session.delete(obj)   <span class="hljs-comment"># Remove da sessão</span>
 session.refresh(obj)  <span class="hljs-comment"># Atualiza o objeto com a sessão</span>
 
 session.scalars(query)  <span class="hljs-comment"># Lista N objetos</span>
