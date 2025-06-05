@@ -371,7 +371,7 @@ def session():
 
     table_registry.metadata.create_all(engine)
 
-	with Session(engine) as session:
+    with Session(engine) as session:
         yield session
 
     table_registry.metadata.drop_all(engine)
