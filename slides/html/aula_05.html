@@ -28,7 +28,7 @@
 <p>A peça principal da nossa integração é a <strong>sessão</strong> do ORM. Ela precisa ser visível aos endpoints para que eles possam se comunicar com o banco.</p>
 <div class="mermaid" style="text-align: center;">
 graph LR
-  Enpoint <--> Session
+  Endpoint <--> Session
   Session <--> id1[(Database)]
 </div>
 </section>
@@ -50,7 +50,7 @@ graph LR
 <h1 id="de-uma-forma-visual">De uma forma visual</h1>
 <div class="mermaid" style="text-align: center;">
 graph
-  Enpoint ---&gt; Session
+  Endpoint ---&gt; Session
   Session --&gt; scalars
   Session --&gt; scalar
   scalar --&gt; Busca_Dado[Busca um dado]
@@ -90,7 +90,7 @@ session.rollback()  <span class="hljs-comment"># Desfaz as UTs</span>
 </code></pre>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="7" data-theme="n8yefm1miyhj3wtafcz8dpeerocp8ltame88m23l7s86" lang="en-US" style="--theme:n8yefm1miyhj3wtafcz8dpeerocp8ltame88m23l7s86;">
-<h1 id="entendendo-o-enpoint-de-cadastro">Entendendo o enpoint de cadastro</h1>
+<h1 id="entendendo-o-endpoint-de-cadastro">Entendendo o endpoint de cadastro</h1>
 <p>Precisamos executar algumas operações para efetuar um cadastro:</p>
 <ol>
 <li>O <code>email</code> não pode existir na base de dados</li>
@@ -229,7 +229,7 @@ engine = create_engine(Settings().DATABASE_URL)
 <p>Embora esteja bom, não tenhamos muita coisa que fuja da nossa lógica, somente a invocação de <code>get_session</code>. A chamada está acoplada. Isso traz dois problemas:</p>
 <ol>
 <li><strong>Encapsulamento</strong>: é complicado de escrever testes!</li>
-<li><strong>Dependência</strong>: o enpoint tem que conhecer a chamada da sessão</li>
+<li><strong>Dependência</strong>: o endpoint tem que conhecer a chamada da sessão</li>
 </ol>
 <p>Mas, nem tudo está perdido!</p>
 </section>
@@ -420,7 +420,7 @@ graph LR
 </code></pre>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="28" data-theme="n8yefm1miyhj3wtafcz8dpeerocp8ltame88m23l7s86" lang="en-US" style="--theme:n8yefm1miyhj3wtafcz8dpeerocp8ltame88m23l7s86;">
-<h2 id="enpoint-de-put">Enpoint de /PUT</h2>
+<h2 id="endpoint-de-put">Endpoint de /PUT</h2>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-python"><span class="hljs-meta">@app.put(<span class="hljs-params"><span class="hljs-string">&#x27;/users/{user_id}&#x27;</span>, response_model=UserPublic</span>)</span>
 <span class="hljs-keyword">def</span> <span class="hljs-title function_">update_user</span>(<span class="hljs-params">
     user_id: <span class="hljs-built_in">int</span>, user: UserSchema, session: Session = Depends(<span class="hljs-params">get_session</span>)
@@ -437,7 +437,7 @@ graph LR
 </code></pre>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="29" data-theme="n8yefm1miyhj3wtafcz8dpeerocp8ltame88m23l7s86" lang="en-US" style="--theme:n8yefm1miyhj3wtafcz8dpeerocp8ltame88m23l7s86;">
-<h2 id="enpoint-de-delete">Enpoint de /DELETE</h2>
+<h2 id="endpoint-de-delete">Endpoint de /DELETE</h2>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-python"><span class="hljs-meta">@app.delete(<span class="hljs-params"><span class="hljs-string">&#x27;/users/{user_id}&#x27;</span>, response_model=Message</span>)</span>
 <span class="hljs-keyword">def</span> <span class="hljs-title function_">delete_user</span>(<span class="hljs-params">user_id: <span class="hljs-built_in">int</span>, session: Session = Depends(<span class="hljs-params">get_session</span>)</span>):
     <span class="hljs-comment"># Validação</span>
