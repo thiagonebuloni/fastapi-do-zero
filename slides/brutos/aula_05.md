@@ -75,8 +75,8 @@ engine = create_engine(Settings().DATABASE_URL)
 
 session = Session(engine)  # Cria a sessão
 
-session.add(obj)      # Adiciona no banco
-session.delete(obj)   # Remove do banco
+session.add(obj)      # Adiciona na sessão
+session.delete(obj)   # Remove da sessão
 session.refresh(obj)  # Atualiza o objeto com a sessão
 
 session.scalars(query)  # Lista N objetos
