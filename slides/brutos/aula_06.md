@@ -31,7 +31,7 @@ Nossas senhas estão sendo armazenadas de forma limpa no banco de dados. Isso po
 
 ---
 
-# Armazenas senhas de forma segura
+# Armazenar senhas de forma segura
 
 Para isso vamos armazenar somente o hash das senhas e criar duas funções para controlar esse fluxo:
 
